@@ -8,6 +8,7 @@ import '../styles/App.css'
 /////COMPONENTS IMPORT
 import { Header } from './Header'
 import { Listing } from './Listing'
+import { Loader } from './Loader'
 
 /////ACTIONS IMPORT
 import { getListings } from '../store/actions/listingsActions'
@@ -18,7 +19,9 @@ class App extends Component {
   }
 
   loadListings = () => {
-    return this.props.listings.map((item,index) => {
+    
+    return this.props.listings.loading? <Loader />: 
+      this.props.listings.map((item,index) => {
           return <Listing key={index} 
                     imgSrc={item.img_url}
                     title={item.title}
