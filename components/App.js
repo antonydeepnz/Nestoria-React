@@ -17,6 +17,15 @@ class App extends Component {
     super();
   }
 
+  loadListings = () => {
+    return this.props.listings.map((item,index) => {
+          return <Listing key={index} 
+                    imgSrc={item.img_url}
+                    title={item.title}
+                    price={item.price_formatted} />
+  })}
+  
+
   handleSearch = (town) => {
     this.props.onQuery(town);
     this.props.onGetListings(town);
@@ -27,14 +36,8 @@ class App extends Component {
       <div className='app'>
         <Header onSearch={this.handleSearch} />
         <div className='list-of-listings'>
-        {this.props.listings.map((item,index) => {
-          return <Listing key={index} 
-                    imgSrc={item.img_url}
-                    title={item.title}
-                    price={item.price_formatted}/>
-        })}
+          {this.loadListings()}
         </div>
-        <Map />
       </div>
     );
   }

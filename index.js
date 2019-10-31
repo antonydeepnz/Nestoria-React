@@ -1,21 +1,12 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import './style.css';
+import { Provider } from 'react-redux';
 
-//const style = {display: block}
+import App from './components/App';
+import store from './store/store';
 
-class App extends Component {
-  constructor() {
-    super();
-  }
-
-  render() {
-    return (
-      <div className='all' onScrollDown={() => {console.log('sddsg')}}>
-        <p>sdgfdsgfgfdg</p>
-      </div>
-    );
-  }
-}
-
-render(<App />, document.getElementById('root'));
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+   document.getElementById('root'));

@@ -1,15 +1,18 @@
 const initialRoutes = [
   {
     path: "/listings",
-    component: Listings
+    //component: Listings,
+    selected: true
   },
   {
     path: "/favorites",
-    component: Favorites
+    //component: Favorites,
+    selected: false
   },
   {
     path: "/about",
-    component: About
+    //component: About,
+    selected: false
   },
   /*{
     path: "/tacos",
@@ -27,6 +30,9 @@ const initialRoutes = [
   }*/
 ];
 
-export const routes = () => {
-
+export default function router(state = initialRoutes, action){
+  switch (action.type){
+    
+  }
+  return state;
 }
