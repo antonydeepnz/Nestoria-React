@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,16 +8,10 @@ import {
   useRouteMatch
 } from "react-router-dom";
 
-export default class Router extends Component {
-  constructor(){
-    super();
-  }
-
-  render(){
-    return (
-      <Router>
-        
-      </Router>
-    );
-  }
+export default Router= () => {
+  return (
+    <Router>
+      
+    </Router>
+  );
 }

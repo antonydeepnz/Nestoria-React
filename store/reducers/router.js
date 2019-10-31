@@ -7,6 +7,10 @@ const initialRoutes = [
     path: "/favorites",
     component: Favorites
   },
+  {
+    path: "/about",
+    component: About
+  },
   /*{
     path: "/tacos",
     component: Tacos,
@@ -22,3 +26,7 @@ const initialRoutes = [
     ]
   }*/
 ];
+
+export const routes = () => {
+
+}
