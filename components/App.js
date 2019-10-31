@@ -19,14 +19,16 @@ class App extends Component {
   }
 
   loadListings = () => {
-    
-    return this.props.listings.loading? <Loader />: 
-      this.props.listings.map((item,index) => {
-          return <Listing key={index} 
-                    imgSrc={item.img_url}
-                    title={item.title}
-                    price={item.price_formatted} />
-  })}
+    while(){
+      return this.props.listings.loading <Loader /> 
+    }
+      return this.props.listings.map((item,index) => {
+        return <Listing key={index} 
+                  imgSrc={item.img_url}
+                  title={item.title}
+                  price={item.price_formatted} />
+      })
+  }
   
 
   handleSearch = (town) => {
