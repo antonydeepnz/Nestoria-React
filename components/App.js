@@ -19,10 +19,9 @@ class App extends Component {
   }
 
   loadListings = () => {
-    while(){
-      return this.props.listings.loading <Loader /> 
-    }
-      return this.props.listings.map((item,index) => {
+    return this.props.loading? <Loader />: 
+    
+       this.props.listings.map((item,index) => {
         return <Listing key={index} 
                   imgSrc={item.img_url}
                   title={item.title}
@@ -51,6 +50,7 @@ class App extends Component {
 export default connect(
   state => ({
     listings: state.listings.listings,
+    loading: state.listings.loading,
     town: state.listings.town
   }),
   dispatch => ({

@@ -1,7 +1,7 @@
 const initialState = () => {
   return {
     listings: [],
-    loading: true,
+    loading: false,
     error: '',
     queryTown: 'london'
   }
