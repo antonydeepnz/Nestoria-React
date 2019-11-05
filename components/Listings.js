@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-import { Listing  from './Listing'
+import { Listing } from './Listing'
 import { Loader } from './Loader'
 
 const Listings = (props) => {
-  console.log(props.listingsState)
   return (
     <>
       {props.listingsState.loading? <Loader />:
