@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios' 
+
 
 /////STYLES IMPORT
 import '../styles/App.css'
 
 /////COMPONENTS IMPORT
 import { Header } from './Header'
-import { Listing } from './Listing'
 import Listings from './Listings'
-import { Loader } from './Loader'
 
-/////ACTIONS IMPORT
+/////functions IMPORT
 import { getListings } from '../store/actions/listingsActions'
 
 class App extends Component {

@@ -8,7 +8,6 @@ const initialState = {
     error: ''
 } 
 
-
 const listings = handleActions(
   {
     [getListingsRequest]: (state) => ({...state, loading: true}),
