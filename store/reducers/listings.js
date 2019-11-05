@@ -1,21 +1,17 @@
 import { createActions, handleActions } from 'redux-actions';
 
-const initialState = () => {
-  return {
+const initialState = {
     listings: [],
     loading: false,
     error: '',
     queryTown: 'london'
-  }
 } 
 
 export const { getListingsRequest, getListingsFulfiled, getListingsRejected } = createActions(
-  
-    "GET_LISTINGS_REQUEST",
-    'GET_LISTINGS_FULFILED',
-    'GET_LISTINGS_REJECTED' 
+  "GET_LISTINGS_REQUEST",
+  'GET_LISTINGS_FULFILED',
+  'GET_LISTINGS_REJECTED' 
 ) 
-
 
 // export const requestData = (state, bool) => {
 //     return {...state, loading: bool};
@@ -53,11 +49,13 @@ export const { getListingsRequest, getListingsFulfiled, getListingsRejected } = 
 //   }
 // }
 
-export const listings = handleActions(
+const listings = handleActions(
   {
-    [getListingsRequest]: (state,bool) => ({...state, loading: bool}),
-    [getListingsFulfiled]: (state,data) => ({...state, listings: data, loading: false}),
-    [getListingsRejected]: (state,error) => ({...state, errorMessage: error, loading: false})
+    [getListingsRequest]: (state) => ({...state, loading: true}),
+    [getListingsFulfiled]: (state,{payload}) => ({...state, listings: payload, loading: false}),
+    [getListingsRejected]: (state,{payload}) => ({...state, error: payload, loading: false})
   },  
-  initialState()
+  initialState
 );
+
+export default listings;

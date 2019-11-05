@@ -8,6 +8,7 @@ import '../styles/App.css'
 /////COMPONENTS IMPORT
 import { Header } from './Header'
 import { Listing } from './Listing'
+import Listings from './Listings'
 import { Loader } from './Loader'
 
 /////ACTIONS IMPORT
@@ -17,7 +18,7 @@ class App extends Component {
   constructor() {
     super();
   }
-
+/*
   loadListings = () => {
     return !this.props.loading? <Loader />:
        this.props.listings.map((item,index) => {
@@ -27,7 +28,7 @@ class App extends Component {
                   price={item.price_formatted} />
       })
   }
-  
+ */ 
 
   handleSearch = (town) => {
     this.props.onQuery(town);
@@ -39,18 +40,30 @@ class App extends Component {
       <div className='app'>
         <Header onSearch={this.handleSearch} />
         <div className='list-of-listings'>
-          {this.loadListings()}
+          <Listings />
         </div>
       </div>
     );
   }
 }
 
+const mapStateToProps = (state) => {
+  return { 
+    listings: state.listings
+  };
+};
+
+const mapDispatchtoProps = (dispatch) => {
+  return {
+
+  }
+}
+
 export default connect(
   state => ({
-    listings: state.listings.listings.payload,
-    loading: state.listings.loading,
-    town: state.listings.town
+    //listings: state.listings.listings.payload,
+    //loading: state.listings.loading,
+    //town: state.listings.town
   }),
   dispatch => ({
     onGetListings: (town) => {
