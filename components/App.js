@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-
 /////STYLES IMPORT
 import '../styles/App.css'
 
