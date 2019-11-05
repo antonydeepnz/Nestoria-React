@@ -56,10 +56,7 @@ export const { getListingsRequest, getListingsFulfiled, getListingsRejected } = 
 export const listings = handleActions(
   {
     [getListingsRequest]: (state,bool) => ({...state, loading: bool}),
-  
-    [getListingsFulfiled]: (state,data) => ({...state, listings: data, loading: false})
-,
-  
+    [getListingsFulfiled]: (state,data) => ({...state, listings: data, loading: false}),
     [getListingsRejected]: (state,error) => ({...state, errorMessage: error, loading: false})
   },  
   initialState()

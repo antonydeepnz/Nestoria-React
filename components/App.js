@@ -19,8 +19,7 @@ class App extends Component {
   }
 
   loadListings = () => {
-    return this.props.loading? <Loader />: 
-    
+    return !this.props.loading? <Loader />:
        this.props.listings.map((item,index) => {
         return <Listing key={index} 
                   imgSrc={item.img_url}
@@ -49,7 +48,7 @@ class App extends Component {
 
 export default connect(
   state => ({
-    listings: state.listings.listings,
+    listings: state.listings.listings.payload,
     loading: state.listings.loading,
     town: state.listings.town
   }),
