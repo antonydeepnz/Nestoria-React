@@ -1,6 +1,7 @@
 .listing-item {
   display: flex;
   flex-direction: column;
+  position: relative;
   padding: 5px;
   align-items: center;
   background-color: rgba(164, 184, 184, 0.493);

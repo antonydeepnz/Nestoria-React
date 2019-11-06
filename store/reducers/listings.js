@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 
-import { getListingsRequest, getListingsFulfiled, getListingsRejected } from '../actions/listingsActions'
+import { getListingsRequest, getListingsFulfiled, getListingsRejected, getListingsMore } from '../actions/listingsActions'
 
 const initialState = {
     listings: [],
@@ -12,7 +12,8 @@ const listings = handleActions(
   {
     [getListingsRequest]: (state) => ({...state, loading: true}),
     [getListingsFulfiled]: (state,{payload}) => ({...state, listings: payload, loading: false}),
-    [getListingsRejected]: (state,{payload}) => ({...state, error: payload, loading: false})
+    [getListingsRejected]: (state,{payload}) => ({...state, error: payload, loading: false}),
+    [getListingsMore]: (state,{payload}) => ({...state})
   },  
   initialState
 );

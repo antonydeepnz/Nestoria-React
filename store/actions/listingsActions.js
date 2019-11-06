@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { createActions } from 'redux-actions';
 
-export const { getListingsRequest, getListingsFulfiled, getListingsRejected } = createActions(
+export const { getListingsRequest, getListingsFulfiled, getListingsRejected, getListingsMore } = createActions(
   "GET_LISTINGS_REQUEST",
   'GET_LISTINGS_FULFILED',
-  'GET_LISTINGS_REJECTED' 
+  'GET_LISTINGS_REJECTED',
+  'GET_LISTINGS_MORE'
 ) 
 
 export const getListings = (town = "london") => {

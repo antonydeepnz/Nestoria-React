@@ -1,6 +1,7 @@
-
 import React, { Component } from 'react'
+
 import '../styles/Listing'
+import SaveToFavorites from './SaveToFavorites'
 
 export const Listing = (props) => {
   return (
@@ -8,6 +9,7 @@ export const Listing = (props) => {
       <img src={props.imgSrc} />
       <h4>{props.title}</h4>
       <p>{props.price}</p>
+      <SaveToFavorites />
     </div>
   );
 }

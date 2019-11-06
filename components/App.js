@@ -15,17 +15,6 @@ class App extends Component {
   constructor() {
     super();
   }
-/*
-  loadListings = () => {
-    return !this.props.loading? <Loader />:
-       this.props.listings.map((item,index) => {
-        return <Listing key={index} 
-                  imgSrc={item.img_url}
-                  title={item.title}
-                  price={item.price_formatted} />
-      })
-  }
- */ 
 
   handleSearch = (town) => {
     this.props.onQuery(town);
@@ -57,11 +46,7 @@ const mapDispatchtoProps = (dispatch) => {
 }
 
 export default connect(
-  state => ({
-    //listings: state.listings.listings.payload,
-    //loading: state.listings.loading,
-    //town: state.listings.town
-  }),
+  mapStateToProps,
   dispatch => ({
     onGetListings: (town) => {
       dispatch(getListings(town));
