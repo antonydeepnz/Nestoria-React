@@ -5,17 +5,16 @@ import '../styles/SaveToFavorites.css'
 import { saveToFavorite, deleteFromFavorite } from '../store/actions/favoritesActions'
 
 const SaveToFavorites = (props) => {
-  //if(props.favorite)
   const [checked, setChecked] = useState(false);
   const save = (data) => {
     props.onSave(data)
-    console.log(localStorage);
-
+    setChecked(!checked);
+    //localStorage.clear();
   }
   return(
     <div className="listing-tofavorite">
       <input className="tofavorite-checkbox" type="checkbox" checked={checked} defaultChecked={false}/>
-      <label className="tofavorite-label" onClick={() => {save(props.data);setChecked(!checked)}}></label>
+      <label className="tofavorite-label" onClick={() => {save(props.data)}}></label>
     </div>
   );
 }

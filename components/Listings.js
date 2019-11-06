@@ -13,7 +13,7 @@ const Listings = (props) => {
                 imgSrc={item.img_url}
                 title={item.title}
                 price={item.price_formatted}
-                data={item.lister_url} />
+                data={item} />
       })}
     </>
   )

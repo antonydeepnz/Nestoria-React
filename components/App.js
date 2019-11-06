@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   render() {
+      console.log(localStorage);
     return (
       <div className='app'>
         <Header onSearch={this.handleSearch} />

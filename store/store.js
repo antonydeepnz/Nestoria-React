@@ -7,9 +7,9 @@ import { saveState } from '../src/LSfuncs'
 const store = createStore(reducer, applyMiddleware(thunk));
 
 store.subscribe(() => {
-  saveState({
-    favorites: store.getState().favorites,
-  });
+  saveState(
+    store.getState().favorites,
+  );
 });
 
 export default store;
