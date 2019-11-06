@@ -2,13 +2,19 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
 import '../styles/SaveToFavorites.css'
+import { saveToFavorite, deleteFromFavorite } from '../store/actions/favoritesActions'
 
-const SaveToFavorites = () => {
+const SaveToFavorites = (props) => {
+  //if(props.favorite)
   const [checked, setChecked] = useState(false);
+  const save = (data) => {
+    props.onSave(data)
+    console.log(localStorage);
+  }
   return(
     <div className="listing-tofavorite">
-      <input className="tofavorite-checkbox" type="checkbox" />
-      <label className="tofavorite-label" onClick={() => {console.log('fdgvfg');setChecked(!checked)}}></label>
+      <input className="tofavorite-checkbox" type="checkbox" checked={checked} defaultChecked={false}/>
+      <label className="tofavorite-label" onClick={() => {save(props.data);setChecked(!checked)}}></label>
     </div>
   );
 }
@@ -26,13 +32,24 @@ const SaveToFavorites = () => {
   //       console.log(checkbox.checked);  
   //     });
 
-export default SaveToFavorites;
-/*
+//export default SaveToFavorites;
+
 const mapStateToProps = (state) => {
   return {
-    state
+    favorites: state.favorites 
   }
 }
 
-export default connect()(SaveToFavorites)
-*/
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSave: (data) => {
+      //console.log(data)
+      dispatch(saveToFavorite(data))
+    }
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SaveToFavorites)

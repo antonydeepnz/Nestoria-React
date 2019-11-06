@@ -12,7 +12,8 @@ const Listings = (props) => {
           return <Listing key={index} 
                 imgSrc={item.img_url}
                 title={item.title}
-                price={item.price_formatted} />
+                price={item.price_formatted}
+                data={item.lister_url} />
       })}
     </>
   )
@@ -20,7 +21,8 @@ const Listings = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    listingsState: state.listings
+    listingsState: state.listings,
+
   }
 }
 

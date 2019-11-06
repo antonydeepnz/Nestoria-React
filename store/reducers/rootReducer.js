@@ -5,6 +5,8 @@ import query from './query'
 import favorites from './favorites'
 import router from './router'
 
-export default combineReducers({
-  listings, query, //favorites, router 
+const reducer = combineReducers({
+  listings, query, router, favorites
 })
+
+export default reducer;

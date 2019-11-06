@@ -5,7 +5,7 @@ import '../styles/search.css'
 import { getListings } from '../store/actions/listingsActions'
 
 export const Search = (props) => {
-  const [town, setTown] = useState('');
+  const [town, setTown] = useState('london');
   const transfer = () => {
     props.onSearch(town);
   }
@@ -35,12 +35,6 @@ export default connect(
   dispatch => ({
     onGetListings: (town) => {
       dispatch(getListings(town));
-    },
-    onShowMore : () => {
-      
-    },
-    onQuery: (town) => {
-      dispatch({type: "MAKE_QUERY_STRING", payload: town})
     }
   })
 )(Search)

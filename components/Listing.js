@@ -9,7 +9,7 @@ export const Listing = (props) => {
       <img src={props.imgSrc} />
       <h4>{props.title}</h4>
       <p>{props.price}</p>
-      <SaveToFavorites />
+      <SaveToFavorites data={props.data}/>
     </div>
   );
 }

@@ -1,14 +1,16 @@
 import { handleActions } from 'redux-actions';
 
-import { saveToFavorites, deleteFromFavorites } from '../actions/favoritesActions'
+import { saveToFavorite, deleteFromFavorite } from '../actions/favoritesActions'
 import { loadState } from '../../src/LSfuncs'
+
+const initialState = [];
 
 const favorites =  handleActions(
   {
-    [saveToFavorites]: (state,{payload}) = ({...state,payload}),
-    [deleteFromFavorites]: (state,{payload}) = ({...state,payload})
+    [saveToFavorite]: (state,{payload}) => ({...state,payload}),
+    [deleteFromFavorite]: (state,{payload}) => ({...state,payload})
   },  
-  loadState
+  loadState()
 );
 
 export default favorites;
