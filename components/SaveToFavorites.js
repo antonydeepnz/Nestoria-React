@@ -10,6 +10,7 @@ const SaveToFavorites = (props) => {
   const save = (data) => {
     props.onSave(data)
     console.log(localStorage);
+
   }
   return(
     <div className="listing-tofavorite">

@@ -22,7 +22,6 @@ const Listings = (props) => {
 const mapStateToProps = (state) => {
   return {
     listingsState: state.listings,
-
   }
 }
 
