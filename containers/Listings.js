@@ -10,13 +10,13 @@ import { getListings } from '../store/actions/listingsActions'
 const Listings = (props) => {
 
   const handleSearch = (town) => {
-    this.props.onQuery(town);
+   // this.props.onQuery(town);
     this.props.onGetListings(town);
   }
 
   return (
     <>
-      <Search onSearch={this.handleSearch}/>
+      <Search onSearch={handleSearch}/>
       {props.listingsState.loading? <Loader />:
         props.listingsState.listings.map((item,index) => {
           return <Listing key={index} 
