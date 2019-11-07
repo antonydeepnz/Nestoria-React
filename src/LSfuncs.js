@@ -13,8 +13,9 @@ export const loadState = (key) => {
 export const saveState = (state) => {
   try {
     const serializedState = JSON.stringify(state);
+    console.log(serializedState)
     localStorage.setItem('nestoria', serializedState);
-  } catch {
-    
+  } catch (err) {
+    console.log(err)
   }
-};
+}

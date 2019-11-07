@@ -8,7 +8,8 @@ const SaveToFavorites = (props) => {
   const [checked, setChecked] = useState(props.checked);
   const change = (data) => {
     !checked? props.onSave(data): props.onDelete(data);
-    console.log(localStorage)
+    // console.log(localStorage);
+    // console.log(props.favorites)
     setChecked(!checked);
   }
   return(
