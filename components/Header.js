@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Menu from './Menu'
-import '../styles/header.css'
+//import '../styles/header.css'
 
 export const Header = (props) => {
   return(
@@ -11,5 +11,3 @@ export const Header = (props) => {
     </div>
   );
 }
-
-//<Search onSearch={props.onSearch} />
