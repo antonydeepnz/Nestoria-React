@@ -7,6 +7,38 @@ import {
   useRouteMatch
 } from "react-router-dom";
 
+const initialRoutes = [
+  {
+    path: "/listings",
+    //component: Listings,
+    selected: true
+  },
+  {
+    path: "/favorites",
+    //component: Favorites,
+    selected: false
+  },
+  {
+    path: "/about",
+    //component: About,
+    selected: false
+  },
+  /*{
+    path: "/tacos",
+    component: Tacos,
+    routes: [
+      {
+        path: "/tacos/bus",
+        component: Bus
+      },
+      {
+        path: "/tacos/cart",
+        component: Cart
+      }
+    ]
+  }*/
+];
+
 export default Router= () => {
   return (
     <Router>

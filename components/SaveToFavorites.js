@@ -6,14 +6,14 @@ import { saveToFavorite, deleteFromFavorite } from '../store/actions/favoritesAc
 
 const SaveToFavorites = (props) => {
   const [checked, setChecked] = useState(props.checked);
-  const change = (data) => {
+  const handleChange = (data) => {
     !checked? props.onSave(data): props.onDelete(data);
     setChecked(!checked);
   }
   return(
     <div className="listing-tofavorite">
       <input className="tofavorite-checkbox" type="checkbox" checked={checked}/>
-      <label className="tofavorite-label" onClick={() => {change(props.data)}}></label>
+      <label className="tofavorite-label" onClick={() => {handleChange(props.data)}}></label>
     </div>
   );
 }
