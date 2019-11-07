@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import { Search } from './Search'
 import Menu from './Menu'
+import '../styles/header.css'
 
 export const Header = (props) => {
   return(

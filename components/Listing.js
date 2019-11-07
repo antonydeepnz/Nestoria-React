@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import '../styles/Listing'
+import '../styles/listing.css'
 import SaveToFavorites from './SaveToFavorites'
 import { haveSaved } from '../src/helpFuncs'
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
-import '../styles/SaveToFavorites.css'
+import '../styles/saveToFavorites.css'
 import { saveToFavorite, deleteFromFavorite } from '../store/actions/favoritesActions'
 
 const SaveToFavorites = (props) => {
