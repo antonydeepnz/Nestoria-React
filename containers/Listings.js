@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-import { Listing } from './Listing'
-import { Loader } from './Loader'
+import { Listing } from '../components/Listing'
+import { Loader } from '../components/Loader'
 
 const Listings = (props) => {
   return (

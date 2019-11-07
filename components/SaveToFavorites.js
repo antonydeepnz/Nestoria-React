@@ -9,7 +9,6 @@ const SaveToFavorites = (props) => {
   const save = (data) => {
     props.onSave(data)
     setChecked(!checked);
-    //localStorage.clear();
   }
   return(
     <div className="listing-tofavorite">
@@ -43,7 +42,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSave: (data) => {
-      //console.log(data)
       dispatch(saveToFavorite(data))
     }
   }
