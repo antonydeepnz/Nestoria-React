@@ -11,7 +11,7 @@ export const Search = (props) => {
   }
   return (
     <div className="search">
-      <input placeholder="Input city where to search" onChange={({target: {value}}) => {setTown(value)}} />
+      <input placeholder="Input city where to search, London is a default" onChange={({target: {value}}) => {setTown(value)}} />
       <button onClick={transfer}>Search</button>
     </div>
   );

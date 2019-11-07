@@ -11,21 +11,22 @@ const Listings = (props) => {
 
   const handleSearch = (town) => {
    // this.props.onQuery(town);
-    this.props.onGetListings(town);
+    props.onGetListings(town);
   }
-
   return (
     <>
       <Search onSearch={handleSearch}/>
-      {props.listingsState.loading? <Loader />:
-        props.listingsState.listings.map((item,index) => {
-          return <Listing key={index} 
-                imgSrc={item.img_url}
-                title={item.title}
-                price={item.price_formatted}
-                data={item} 
-                checked={haveSaved(props.favorites,item)}/>
-      })}
+      <div className='list-of-listings'>
+        {props.listingsState.loading? <Loader />:
+          props.listingsState.listings.map((item,index) => {
+            return <Listing key={index} 
+                  imgSrc={item.img_url}
+                  title={item.title}
+                  price={item.price_formatted}
+                  data={item} 
+                  checked={haveSaved(props.favorites,item)}/>
+        })}
+      </div>
     </>
   )
 }
@@ -35,7 +36,7 @@ const mapStateToProps = (state) => {
     listingsState: state.listings,
     favorites: state.favorites,
   }
-}
+} 
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -43,6 +44,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(getListings(town));
     }
   }
-} 
+}
 
-export default connect(mapStateToProps)(Listings)
+export default connect(mapStateToProps,mapDispatchToProps)(Listings)

@@ -15,18 +15,12 @@ class App extends Component {
   constructor() {
     super();
   }
-/*
-  handleSearch = (town) => {
-    this.props.onQuery(town);
-    this.props.onGetListings(town);
-  }
-*/
+
   render() {
     return (
       <div className='app'>
         <Header />
-        <div className='list-of-listings'>
-        </div>
+        
       </div>
     );
   }
