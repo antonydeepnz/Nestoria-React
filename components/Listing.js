@@ -5,7 +5,6 @@ import SaveToFavorites from './SaveToFavorites'
 import { haveSaved } from '../src/helpFuncs'
 
 export const Listing = (props) => {
-  console.log(props);
   return (
     <div className='listing-item'>
       <img src={props.imgSrc} />
