@@ -10,10 +10,9 @@ const favorites =  handleActions(
   {
     [saveToFavorite]: (state,{payload}) => [...state,payload],
     [deleteFromFavorite]: 
-      (state,{payload}) => [...state,payload]
-      //state.filter(item => 
-      //   item !== payload
-      // )
+      (state,{payload}) => state.filter(item => 
+        item.lister_url !== payload.lister_url
+      )
   },  
   initialState
 );
