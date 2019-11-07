@@ -50,9 +50,14 @@ const initialRoutes = [
 const Menu = () => {
   return (
     <Router> 
-        {initialRoutes.map((item,i) => {
-          return <Navigation key={i} path={item.path} text={item.text} />
-        })}    
+      {initialRoutes.map((item,i) => {
+        return <Navigation key={i} path={item.path} text={item.text} />
+      })}      
+      <Switch>
+          {initialRoutes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+      </Switch>
     </Router>
   );
 }
@@ -62,7 +67,6 @@ const RouteWithSubRoutes = (route) => {
     <Route
       path={route.path}
       render={props => (
-        // pass the sub-routes down to keep nesting
         <route.component {...props} routes={route.routes} />
       )}
     />
