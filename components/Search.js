@@ -16,7 +16,7 @@ export const Search = (props) => {
     </div>
   );
 }
-//() => {onGetListings('london')}
+
 const mapStateToProps = (state) => {
   return { 
     

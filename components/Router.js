@@ -7,20 +7,24 @@ import {
   useRouteMatch
 } from "react-router-dom";
 
+import Listings from '../containers/Listings'
+import Favorites from '../containers/Favorites'
+import About from './About'
+
 const initialRoutes = [
   {
     path: "/listings",
-    //component: Listings,
+    component: Listings,
     selected: true
   },
   {
     path: "/favorites",
-    //component: Favorites,
+    component: Favorites,
     selected: false
   },
   {
     path: "/about",
-    //component: About,
+    component: About,
     selected: false
   },
   /*{
