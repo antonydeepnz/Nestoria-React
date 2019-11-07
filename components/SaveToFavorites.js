@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     onDelete: (data,event) => {
       dispatch(deleteFromFavorite(data));
-      console.log(event.target.parentNode)//.style.display = 'none';
+      event.target.parentNode.style.display = 'none';
     }
   }
 }
