@@ -1,13 +1,17 @@
 import React from 'react'
 import { YMaps, Map } from 'react-yandex-maps'
+import {
+  useParams,
+} from "react-router-dom";
 
 import '../styles/extended.css'
 
 const ListingExtended = (props) => {
+  let { topicId } = useParams();
   return(
     <div className="extended">
-      <img src={props.img_src} />
-      
+      {topicId}
+      //<img src={props.img_src} />
     </div>
   );
 }
