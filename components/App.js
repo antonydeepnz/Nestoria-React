@@ -21,16 +21,6 @@ class App extends Component {
     this.props.onGetListings(town);
   }
 
-  add = () => {
-    console.log(this.props.favorites)
-    /*this.props.favorites.map((item,index) => {
-          return <Listing key={index} 
-                imgSrc={item.img_url}
-                title={item.title}
-                price={item.price_formatted}
-                data={item} />
-  })*/}
-
   render() {
       console.log(localStorage);
     return (
@@ -46,9 +36,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return { 
-    listings: state.listings,
-    favorites: state.favorites
-  };
+    listings: state.listings
+  }
 };
 
 const mapDispatchtoProps = (dispatch) => {

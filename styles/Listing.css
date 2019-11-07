@@ -29,3 +29,16 @@
 .listing-item > p {
   display: block;
 }
+
+.listing-getmore-btn {
+    width: auto;
+    height: 25px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 5px;
+    background-color: #545454;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}

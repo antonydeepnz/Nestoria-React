@@ -1,0 +1,26 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+
+import { Listing } from '../components/Listing'
+
+const Favorites = (props) => {
+  return (
+    <>
+      {props.favorites.map((item,index) => {
+        return <Listing key={index} 
+              imgSrc={item.img_url}
+              title={item.title}
+              price={item.price_formatted}
+              data={item} />
+      })}
+    </>
+  )
+}
+
+const mapStateToProps = (state) => {
+  return {
+    favorites: state.favorites,
+  }
+}
+
+export default connect(mapStateToProps)(Favorites)
