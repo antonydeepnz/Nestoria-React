@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import '../styles/Listing'
 import SaveToFavorites from './SaveToFavorites'
+import { haveSaved } from '../src/helpFuncs'
 
 export const Listing = (props) => {
   return (
@@ -10,7 +11,7 @@ export const Listing = (props) => {
       <h4>{props.title}</h4>
       <p>{props.price}</p>
       <a className='listing-getmore-btn'>More Info</a>
-      <SaveToFavorites data={props.data}/>
+      <SaveToFavorites data={props.data} checked={props.checked}/>
     </div>
   );
 }

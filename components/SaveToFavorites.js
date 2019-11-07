@@ -5,7 +5,7 @@ import '../styles/SaveToFavorites.css'
 import { saveToFavorite, deleteFromFavorite } from '../store/actions/favoritesActions'
 
 const SaveToFavorites = (props) => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(props.checked);
   const save = (data) => {
     props.onSave(data)
     setChecked(!checked);
