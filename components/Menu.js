@@ -49,11 +49,23 @@ const initialRoutes = [
 
 const Menu = () => {
   return (
-    <Router>
-      {initialRoutes.map(item => {
-        return <Navigation path={item.path} text={item.text} />
-      })}    
+    <Router> 
+        {initialRoutes.map((item,i) => {
+          return <Navigation key={i} path={item.path} text={item.text} />
+        })}    
     </Router>
+  );
+}
+
+const RouteWithSubRoutes = (route) => {
+  return (
+    <Route
+      path={route.path}
+      render={props => (
+        // pass the sub-routes down to keep nesting
+        <route.component {...props} routes={route.routes} />
+      )}
+    />
   );
 }
 
