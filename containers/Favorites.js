@@ -12,6 +12,7 @@ const Favorites = (props) => {
               imgSrc={item.img_url}
               title={item.title}
               price={item.price_formatted}
+              
               data={item} 
               checked={haveSaved(props.favorites,item)}/>
       })}

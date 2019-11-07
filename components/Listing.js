@@ -11,8 +11,8 @@ export const Listing = (props) => {
       <img src={props.imgSrc} />
       <h4>{props.title}</h4>
       <p>{props.listing_type === 'rent'? 
-          `${props.price_formatted} ${price_type}`:
-          `Buy for ${props.price_formatted} ${price_type}`}</p>
+          `${props.price} ${props.price_type}`:
+          `Buy for ${props.price} ${props.price_type}`}</p>
       <a className='listing-getmore-btn'>More Info</a>
       <SaveToFavorites data={props.data} checked={props.checked}/>
     </div>

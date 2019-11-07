@@ -23,6 +23,7 @@ const Listings = (props) => {
                   imgSrc={item.img_url}
                   title={item.title}
                   price={item.price_formatted}
+                  price_type={item.price_type}
                   data={item} 
                   checked={haveSaved(props.favorites,item)}/>
         })}
