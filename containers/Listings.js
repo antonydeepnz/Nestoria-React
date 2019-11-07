@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
+import { Search } from '../components/Search'
 import { Listing } from '../components/Listing'
 import { Loader } from '../components/Loader'
 import { haveSaved } from '../src/helpFuncs'
+import { getListings } from '../store/actions/listingsActions'
 
 const Listings = (props) => {
+
+  const handleSearch = (town) => {
+    this.props.onQuery(town);
+    this.props.onGetListings(town);
+  }
+
   return (
     <>
+      <Search onSearch={this.handleSearch}/>
       {props.listingsState.loading? <Loader />:
         props.listingsState.listings.map((item,index) => {
           return <Listing key={index} 
@@ -27,5 +36,13 @@ const mapStateToProps = (state) => {
     favorites: state.favorites,
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onGetListings: (town) => {
+      dispatch(getListings(town));
+    }
+  }
+} 
 
 export default connect(mapStateToProps)(Listings)
