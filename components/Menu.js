@@ -10,21 +10,25 @@ import {
 import Listings from '../containers/Listings'
 import Favorites from '../containers/Favorites'
 import About from './About'
+import Navigation from './Navigation'
 
 const initialRoutes = [
   {
     path: "/listings",
     component: Listings,
+    text: "Search Properties",
     selected: true
   },
   {
     path: "/favorites",
     component: Favorites,
+    text: "Booked to favorites",
     selected: false
   },
   {
     path: "/about",
     component: About,
+    text: "About",
     selected: false
   },
   /*{
@@ -43,10 +47,14 @@ const initialRoutes = [
   }*/
 ];
 
-export default Router= () => {
+const Router = () => {
   return (
-    <Router>
-      
-    </Router>
+    <>
+      {initialRoutes.map(item => {
+        return <Navigation path={item.path} text={item.text} />
+      })}    
+    </>
   );
 }
+
+export default Router;
