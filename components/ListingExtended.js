@@ -3,7 +3,7 @@ import { YMaps, Map } from 'react-yandex-maps'
 
 import '../styles/extended.css'
 
-export const ListingExtended = (props) => {
+const ListingExtended = (props) => {
   return(
     <div className="extended">
       <img src={props.img_src} />
@@ -11,3 +11,5 @@ export const ListingExtended = (props) => {
     </div>
   );
 }
+
+export default ListingExtended;

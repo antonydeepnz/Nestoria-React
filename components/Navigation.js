@@ -6,7 +6,7 @@ import '../styles/navigation.css'
 
 const Navigation = (props) => {
   return(
-    <ul>
+    <ul className="menu">
       <Link to={props.path}>{props.text}</Link>
     </ul>
   );

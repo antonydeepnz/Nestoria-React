@@ -11,25 +11,30 @@ import Listings from '../containers/Listings'
 import Favorites from '../containers/Favorites'
 import About from './About'
 import Navigation from './Navigation'
+import ListingExtended from './ListingExtended'
+
 
 const initialRoutes = [
   {
     path: "/listings",
     component: Listings,
     text: "Search Properties",
-    selected: true
+    routes: [
+      {
+        path: '/listings/:id',
+        component: ListingExtended
+      }
+    ]
   },
   {
     path: "/favorites",
     component: Favorites,
     text: "Booked to favorites",
-    selected: false
   },
   {
     path: "/about",
     component: About,
     text: "About",
-    selected: false
   },
   /*{
     path: "/tacos",
