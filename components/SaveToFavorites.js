@@ -6,32 +6,18 @@ import { saveToFavorite, deleteFromFavorite } from '../store/actions/favoritesAc
 
 const SaveToFavorites = (props) => {
   const [checked, setChecked] = useState(props.checked);
-  const save = (data) => {
-    props.onSave(data)
+  const change = (data) => {
+    !checked? props.onSave(data): props.onDelete(data);
+    console.log(localStorage)
     setChecked(!checked);
   }
   return(
     <div className="listing-tofavorite">
-      <input className="tofavorite-checkbox" type="checkbox" checked={checked} defaultChecked={false}/>
-      <label className="tofavorite-label" onClick={() => {save(props.data)}}></label>
+      <input className="tofavorite-checkbox" type="checkbox" checked={checked}/>
+      <label className="tofavorite-label" onClick={() => {change(props.data)}}></label>
     </div>
   );
 }
-
-  //     checkbox.checked = hasValue(this.settings.lister_url)? true: false;
-      
-  //     toFavorite.addEventListener('click', () => {
-  //       if(!hasValue(this.settings.lister_url)){
-  //         savetoLS(this.settings);
-  //         checkbox.checked = true;
-  //       } else {
-  //         removeFromLS(this.settings);
-  //         checkbox.checked = false;
-  //       }
-  //       console.log(checkbox.checked);  
-  //     });
-
-//export default SaveToFavorites;
 
 const mapStateToProps = (state) => {
   return {
@@ -43,6 +29,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onSave: (data) => {
       dispatch(saveToFavorite(data))
+    },
+    onDelete: (data) => {
+      console.log('dsgdsf')
+      dispatch(deleteFromFavorite(data))
     }
   }
 }

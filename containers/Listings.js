@@ -6,7 +6,6 @@ import { Loader } from '../components/Loader'
 import { haveSaved } from '../src/helpFuncs'
 
 const Listings = (props) => {
-   //console.log(haveSaved(props.favorites,props.item))
   return (
     <>
       {props.listingsState.loading? <Loader />:

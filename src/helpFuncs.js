@@ -1,3 +1,4 @@
 export const haveSaved = (array,obj) => {
-  return array.includes(item => obj.lister_url === item.lister_url)
+  const result = array.find(item => item.lister_url === obj.lister_url)
+  return result? true: false
 }

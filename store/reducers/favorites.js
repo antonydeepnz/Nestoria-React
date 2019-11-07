@@ -9,8 +9,11 @@ const initialState = !data? []: data;
 const favorites =  handleActions(
   {
     [saveToFavorite]: (state,{payload}) => [...state,payload],
-    [deleteFromFavorite]: (state,{payload}) => [...state,payload]
-  },  
+    [deleteFromFavorite]: 
+      (state,{payload}) => {return state.filter(item => 
+        item !== payload
+      )
+  }},  
   initialState
 );
 
