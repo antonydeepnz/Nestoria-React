@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import {
-  Switch,
-  Route,
   Link,
-  useParams,
   useRouteMatch
 } from "react-router-dom";
 
@@ -28,11 +25,6 @@ export const Listing = (props) => {
                     >More Info</Link>
         <SaveToFavorites data={props.data} checked={props.checked}/>
       </div>
-      <Switch>
-        <Route path={`${path}/:topicId`}>
-          <ListingExtended />
-        </Route>
-      </Switch>
     </>
   );
 }

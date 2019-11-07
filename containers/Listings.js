@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import {
+  Switch,
+  Route,
+  
+} from "react-router-dom";
 
 import { Search } from '../components/Search'
 import { Listing } from '../components/Listing'
@@ -8,7 +13,7 @@ import { haveSaved } from '../src/helpFuncs'
 import { getListings } from '../store/actions/listingsActions'
 
 const Listings = (props) => {
-
+  let { path, url } = useRouteMatch();
   const handleSearch = (town) => {
    // this.props.onQuery(town);
     props.onGetListings(town);
@@ -28,6 +33,11 @@ const Listings = (props) => {
                   checked={haveSaved(props.favorites,item)}/>
         })}
       </div>
+      <Switch>
+        <Route path={`${path}/:topicId`}>
+          <ListingExtended />
+        </Route>
+      </Switch>
     </>
   )
 }
