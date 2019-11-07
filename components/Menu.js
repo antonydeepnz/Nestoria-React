@@ -47,14 +47,14 @@ const initialRoutes = [
   }*/
 ];
 
-const Router = () => {
+const Menu = () => {
   return (
-    <>
+    <Router>
       {initialRoutes.map(item => {
         return <Navigation path={item.path} text={item.text} />
       })}    
-    </>
+    </Router>
   );
 }
 
-export default Router;
+export default Menu;
