@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { YMaps, Map } from 'react-yandex-maps'
 import {
   useParams,
@@ -8,13 +9,21 @@ import '../styles/extended.css'
 
 const ListingExtended = (props) => {
   let { id } = useParams();
-  console.log(props)
+  const data = props.listings.filter(item => item.title === id)[0];
+  console.log(data);
   return(
     <div className="extended">
-      {id}
-      //<img src={props.img_src} />
+      <img src={data.img_u} />
     </div>
   );
 }
 
-export default ListingExtended;
+// export default ListingExtended;
+
+const mapStateToProps = (state) => {
+  return {
+    listings: state.listings.listings, 
+  }
+}
+
+export default connect(mapStateToProps)(ListingExtended)

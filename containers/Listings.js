@@ -18,8 +18,8 @@ const Listings = (props) => {
     <>
       <Search onSearch={handleSearch}/> 
       <div className='list-of-listings'>
-        {props.listingsState.loading? <Loader />:
-          props.listingsState.listings.map((item,index) => {
+        {props.listings.loading? <Loader />:
+          props.listings.listings.map((item,index) => {
             return <Listing key={index} 
                   imgSrc={item.img_url}
                   title={item.title}
@@ -35,7 +35,7 @@ const Listings = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    listingsState: state.listings,
+    listings: state.listings,
     favorites: state.favorites,
   }
 } 

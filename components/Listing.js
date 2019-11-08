@@ -11,7 +11,7 @@ import ListingExtended from './ListingExtended'
 
 export const Listing = (props) => {
   let { url, path } = useRouteMatch();
-  const pathTo = props.title.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, "").replace(/[ ]/g,'-');
+  const pathTo = props.title//.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, "").replace(/[ ]/g,'-');
 
   return (
     <>
