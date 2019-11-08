@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { YMaps, Map, Placemark } from 'react-yandex-maps'
 
 import { Search } from '../components/Search'
 import { Listing } from '../components/Listing'
@@ -7,6 +8,22 @@ import { Loader } from '../components/Loader'
 import { haveSaved } from '../src/helpFuncs'
 import { getListings } from '../store/actions/listingsActions'
 import ListingExtended from '../components/ListingExtended'
+
+const MyMap = (props) => {
+  return (
+    <YMaps>
+      <Map width='450px' height='450px' defaultState={{ center: props.location, zoom: 13}} >
+        {props.data.map(item => {
+            return <Placemark geometry={[item.latitude, item.longitude]}
+              properties={{iconCaption:item.title}}/> 
+          })
+        } 
+      </Map>
+    </YMaps>
+  );
+}
+
+
 
 const Listings = (props) => {
 
@@ -28,6 +45,7 @@ const Listings = (props) => {
                   data={item} 
                   checked={haveSaved(props.favorites,item)}/>
         })}
+        <MyMap location={props.listings.location} data={props.listings.listings}/>
       </div>
     </>
   );

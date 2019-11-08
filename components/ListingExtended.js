@@ -7,7 +7,7 @@ import {
 
 import '../styles/extended.css'
 
-const MyMap = () => {
+const MyMap = (props) => {
   return (
     <YMaps>
       <Map width='450px' height='450px' defaultState={{ center: [data.latitude, data.longitude], zoom: 18}} >
