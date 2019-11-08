@@ -18,7 +18,7 @@ const listings = handleActions(
     [getListingsRequest]: (state) => ({...state, loading: true}),
     [getListingsFulfiled]: (state,{payload}) => (
       {...state, 
-      listings: [...payload.listings], 
+      listings: [...state.listings,...payload.listings], 
       location: payload.location,
       query: payload.query, 
       loading: false}),
