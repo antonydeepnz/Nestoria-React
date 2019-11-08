@@ -7,18 +7,24 @@ import {
 
 import '../styles/extended.css'
 
+const MyMap = () => {
+  return (
+    <YMaps>
+      <Map width='450px' height='450px' defaultState={{ center: [data.latitude, data.longitude], zoom: 18}} >
+        <Placemark geometry={[data.latitude, data.longitude]}
+            properties={{iconCaption:data.title}}/>
+      </Map>
+    </YMaps>
+  );
+}
+
 const ListingExtended = (props) => {
   let { id } = useParams();
   const data = props.listings.filter(item => item.title === id)[0];
   return(
     <div className="extended">
       <img src={data.img_url} />    
-      <YMaps>
-        <Map defaultState={{ center: [data.latitude, data.longitude], zoom: 18, width:'450px', height:'450px' }} >
-          <Placemark geometry={[data.latitude, data.longitude]}
-              properties={{iconCaption:data.title}}/>
-        </Map>
-      </YMaps>
+      
     </div>
   );
 }
