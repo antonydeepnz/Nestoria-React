@@ -14,7 +14,7 @@ const ListingExtended = (props) => {
     <div className="extended">
       <img src={data.img_url} />    
       <YMaps>
-        <Map defaultState={{ center: [data.latitude, data.longitude], zoom: 18 }}>
+        <Map defaultState={{ center: [data.latitude, data.longitude], zoom: 18, width:'450px', height:'450px' }} >
           <Placemark geometry={[data.latitude, data.longitude]}
               properties={{iconCaption:data.title}}/>
         </Map>
