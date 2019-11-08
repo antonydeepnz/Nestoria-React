@@ -16,7 +16,12 @@ const initialState = {
 const listings = handleActions(
   {
     [getListingsRequest]: (state) => ({...state, loading: true}),
-    [getListingsFulfiled]: (state,{payload}) => ({...state, listings: payload.listings, location: payload.location, loading: false}),
+    [getListingsFulfiled]: (state,{payload}) => (
+      {...state, 
+      listings: payload.listings, 
+      location: payload.location,
+      query: payload.query, 
+      loading: false}),
     [getListingsRejected]: (state,{payload}) => ({...state, error: payload, loading: false}),
     [getListingsMore]: (state,{payload}) => ({...state})
   },  

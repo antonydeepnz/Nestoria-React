@@ -27,7 +27,6 @@ const MyMap = (props) => {
 const Listings = (props) => {
 
   const handleSearch = (town) => {
-   // this.props.onQuery(town);
     props.onGetListings(town);
   }
 
@@ -48,14 +47,14 @@ const Listings = (props) => {
         {props.listings.loading? <Loader />:
           <>
             {elements} 
-            <MyMap className='map' location={props.listings.location} data={props.listings.listings}/>
+            {console.log(props.listings)}
           </>
         }
       </div>
     </>
   );
 }
-
+//            <MyMap className='map' location={props.listings.location} data={props.listings.listings}/>
 const mapStateToProps = (state) => {
   return {
     listings: state.listings,
