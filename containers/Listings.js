@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import {
-  Switch,
-  Route,
-  withRouter,
-  useRouteMatch
-} from "react-router-dom";
+import { connect } from 'react-redux';
 
 import { Search } from '../components/Search'
 import { Listing } from '../components/Listing'
