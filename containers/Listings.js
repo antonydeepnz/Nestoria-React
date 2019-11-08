@@ -40,14 +40,14 @@ const Listings = (props) => {
   const elements = 
     <>
       {props.listings.listings.map((item,index) => {
-            return <Listing key={index} 
-                  imgSrc={item.img_url}
-                  title={item.title}
-                  price={item.price_formatted}
-                  price_type={item.price_type}
-                  data={item} 
-                  checked={haveSaved(props.favorites,item)}/>
-        })}
+        return <Listing key={index} 
+              imgSrc={item.img_url}
+              title={item.title}
+              price={item.price_formatted}
+              price_type={item.price_type}
+              data={item} 
+              checked={haveSaved(props.favorites,item)}/>
+      })}
     </>
 
   return (
@@ -56,7 +56,7 @@ const Listings = (props) => {
       <div className='list-of-listings'>
         {elements} 
         {props.listings.loading? <Loader />:
-            <GetMore func={handleGetMore}/>
+          <><GetMore func={handleGetMore}/></>   
         }
       </div>
     </>
