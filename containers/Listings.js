@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {
   Switch,
   Route,
-  
+  useRouteMatch
 } from "react-router-dom";
 
 import { Search } from '../components/Search'
@@ -11,6 +11,7 @@ import { Listing } from '../components/Listing'
 import { Loader } from '../components/Loader'
 import { haveSaved } from '../src/helpFuncs'
 import { getListings } from '../store/actions/listingsActions'
+import ListingExtended from '../components/ListingExtended'
 
 const Listings = (props) => {
   let { path, url } = useRouteMatch();
