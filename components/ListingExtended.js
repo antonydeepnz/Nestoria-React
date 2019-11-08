@@ -7,10 +7,10 @@ import {
 import '../styles/extended.css'
 
 const ListingExtended = (props) => {
-  let { topicId } = useParams();
+  let { id } = useParams();
   return(
     <div className="extended">
-      {topicId}
+      {id}
       //<img src={props.img_src} />
     </div>
   );

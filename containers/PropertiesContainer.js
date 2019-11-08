@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   Switch,
   Route,
-  withRouter,
   useRouteMatch
 } from "react-router-dom";
 
@@ -13,12 +12,8 @@ const PropertiesContainer = () => {
   let { path, url } = useRouteMatch();
   return (
     <Switch>
-      <Route exact path={path}>
-        <Listings />
-      </Route>
-      <Route path={`${path}/:topicId`}>
-        <ListingExtended />
-      </Route>
+      <Route exact path={path} component={Listings}></Route>
+      <Route path={`${path}/:id`} component={ListingExtended}></Route>
     </Switch>
   );
 }
