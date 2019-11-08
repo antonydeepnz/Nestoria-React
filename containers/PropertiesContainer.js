@@ -9,11 +9,11 @@ import Listings from './Listings'
 import ListingExtended from '../components/ListingExtended'
 
 const PropertiesContainer = () => {
-  let { path, url } = useRouteMatch();
+  let { path } = useRouteMatch();
   return (
     <Switch>
-      <Route exact path={path} component={Listings}></Route>
-      <Route path={`${path}/:id`} component={ListingExtended}></Route>
+      <Route exact path={path} component={Listings}/>
+      <Route path={`${path}/:id`} component={ListingExtended}/>
     </Switch>
   );
 }

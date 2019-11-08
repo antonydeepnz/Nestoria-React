@@ -8,6 +8,7 @@ import '../styles/extended.css'
 
 const ListingExtended = (props) => {
   let { id } = useParams();
+  console.log(props)
   return(
     <div className="extended">
       {id}
