@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {
   Switch,
   Route,
+  withRouter,
   useRouteMatch
 } from "react-router-dom";
 
@@ -14,35 +15,28 @@ import { getListings } from '../store/actions/listingsActions'
 import ListingExtended from '../components/ListingExtended'
 
 const Listings = (props) => {
-  let { path, url } = useRouteMatch();
+
   const handleSearch = (town) => {
    // this.props.onQuery(town);
     props.onGetListings(town);
   }
   return (
-    <><Search onSearch={handleSearch}/> 
-      <Switch>
-        
-        <Route exact path={path}>
-          <div className='list-of-listings'>
-            {props.listingsState.loading? <Loader />:
-              props.listingsState.listings.map((item,index) => {
-                return <Listing key={index} 
-                      imgSrc={item.img_url}
-                      title={item.title}
-                      price={item.price_formatted}
-                      price_type={item.price_type}
-                      data={item} 
-                      checked={haveSaved(props.favorites,item)}/>
-            })}
-          </div>
-        </Route>
-        <Route path={`${path}/:topicId`}>
-          <ListingExtended />
-        </Route>
-      </Switch>
+    <>
+      <Search onSearch={handleSearch}/> 
+      <div className='list-of-listings'>
+        {props.listingsState.loading? <Loader />:
+          props.listingsState.listings.map((item,index) => {
+            return <Listing key={index} 
+                  imgSrc={item.img_url}
+                  title={item.title}
+                  price={item.price_formatted}
+                  price_type={item.price_type}
+                  data={item} 
+                  checked={haveSaved(props.favorites,item)}/>
+        })}
+      </div>
     </>
-  )
+  );
 }
 
 const mapStateToProps = (state) => {
@@ -61,3 +55,26 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Listings)
+
+//  <>
+//       <Switch>
+//         <Search onSearch={handleSearch}/> 
+//         <Route exact path={path}>
+//           <div className='list-of-listings'>
+//             {props.listingsState.loading? <Loader />:
+//               props.listingsState.listings.map((item,index) => {
+//                 return <Listing key={index} 
+//                       imgSrc={item.img_url}
+//                       title={item.title}
+//                       price={item.price_formatted}
+//                       price_type={item.price_type}
+//                       data={item} 
+//                       checked={haveSaved(props.favorites,item)}/>
+//             })}
+//           </div>
+//         </Route>
+//         <Route path={`${path}/:topicId`}>
+//           <ListingExtended />
+//         </Route>
+//       </Switch>
+//     </>

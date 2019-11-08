@@ -6,17 +6,16 @@ import {
   useRouteMatch
 } from "react-router-dom";
 
-import Listings from '../containers/Listings'
+import PropertiesContainer from '../containers/PropertiesContainer'
 import Favorites from '../containers/Favorites'
 import About from './About'
 import Navigation from './Navigation'
 import ListingExtended from './ListingExtended'
 
-
 const initialRoutes = [
   {
     path: "/listings",
-    component: Listings,
+    component: PropertiesContainer,
     text: "Search Properties",
     routes: [
       {
