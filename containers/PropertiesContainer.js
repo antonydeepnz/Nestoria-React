@@ -13,7 +13,7 @@ const PropertiesContainer = () => {
   return (
     <Switch>
       <Route exact path={path} component={Listings}/>
-      <Route path={`${path}/:id`} component={ListingExtended}/>
+      <Route path={`${path}/:id`} component={(props) => {return <ListingExtended {...props}/>}}/>
     </Switch>
   );
 }
