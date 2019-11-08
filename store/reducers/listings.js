@@ -6,7 +6,11 @@ const initialState = {
     listings: [],
     loading: false,
     error: '',
-    location: []
+    location: [],
+    query: {
+      town: '',
+      page: 1
+    }
 } 
 
 const listings = handleActions(

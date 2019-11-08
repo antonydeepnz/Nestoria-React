@@ -13,12 +13,11 @@ export const getListings = (town = "london") => {
     dispatch(getListingsRequest());
     axios.get(`https://cors-anywhere.herokuapp.com/https://api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&country=uk&listing_type=rent&place_name=${town}`)
     .then(res => {
-      console.log(res.data.response);
+      console.log(res);
       const data = res.data.response;
       const listings = data.listings;
       const { center_lat, center_long }  = data.locations[0];
       const result = {listings,location:[center_lat, center_long]}
-      console.log(result)
       dispatch(getListingsFulfiled(result));
     })
     .catch(err => dispatch(getListingsRejected(err)));
