@@ -8,6 +8,7 @@ import { Loader } from '../components/Loader'
 import { haveSaved } from '../src/helpFuncs'
 import { getListings } from '../store/actions/listingsActions'
 import ListingExtended from '../components/ListingExtended'
+import GetMore from '../components/GetMore'
 import '../styles/map.css'
 
 const MyMap = (props) => {
@@ -30,6 +31,11 @@ const Listings = (props) => {
     props.onGetListings(town);
   }
 
+  const handleGetMore = () => {
+    const { town, page } = props.listings.query; 
+    props.onGetMore(town, page+1);
+  }
+
   const elements = props.listings.listings.map((item,index) => {
             return <Listing key={index} 
                   imgSrc={item.img_url}
@@ -47,6 +53,7 @@ const Listings = (props) => {
         {props.listings.loading? <Loader />:
           <>
             {elements} 
+            <GetMore func={handleGetMore}/>
             {console.log(props.listings)}
           </>
         }
@@ -66,6 +73,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onGetListings: (town) => {
       dispatch(getListings(town));
+    },
+    onGetMore: (town,page) => {
+      dispatch(getListings(town,page))
     }
   }
 }

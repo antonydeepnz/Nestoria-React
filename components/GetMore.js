@@ -2,12 +2,9 @@ import React from 'react'
 
 import { getListings } from '../store/actions/listingsActions'
 
-const GetMore = ({town, page}) => {
-  handleClick = () => {
-    getListings(town,page+1);
-  }
+const GetMore = ({func}) => {
   return (
-    <button onClick={handleClick}>Get More</button>
+    <button onClick={func}>Get More</button>
   )
 }
 
