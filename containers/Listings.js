@@ -31,12 +31,15 @@ const Listings = (props) => {
     props.onGetListings(town);
   }
 
-  const handleGetMore = () => {
+  const handleGetMore = (e) => {
     const { town, page } = props.listings.query; 
     props.onGetMore(town, page+1);
+    e.target.style.display = 'none';
   }
 
-  const elements = props.listings.listings.map((item,index) => {
+  const elements = 
+    <>
+      {props.listings.listings.map((item,index) => {
             return <Listing key={index} 
                   imgSrc={item.img_url}
                   title={item.title}
@@ -44,18 +47,16 @@ const Listings = (props) => {
                   price_type={item.price_type}
                   data={item} 
                   checked={haveSaved(props.favorites,item)}/>
-        })
+        })}
+    </>
 
   return (
     <>
       <Search onSearch={handleSearch}/> 
       <div className='list-of-listings'>
+        {elements} 
         {props.listings.loading? <Loader />:
-          <>
-            {elements} 
             <GetMore func={handleGetMore}/>
-            {console.log(props.listings)}
-          </>
         }
       </div>
     </>
