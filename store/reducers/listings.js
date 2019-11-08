@@ -5,13 +5,14 @@ import { getListingsRequest, getListingsFulfiled, getListingsRejected, getListin
 const initialState = {
     listings: [],
     loading: false,
-    error: ''
+    error: '',
+    location: []
 } 
 
 const listings = handleActions(
   {
     [getListingsRequest]: (state) => ({...state, loading: true}),
-    [getListingsFulfiled]: (state,{payload}) => ({...state, listings: payload, loading: false}),
+    [getListingsFulfiled]: (state,{payload}) => ({...state, listings: payload.listings, location: payload.location, loading: false}),
     [getListingsRejected]: (state,{payload}) => ({...state, error: payload, loading: false}),
     [getListingsMore]: (state,{payload}) => ({...state})
   },  

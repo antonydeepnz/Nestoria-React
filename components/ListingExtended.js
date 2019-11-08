@@ -10,15 +10,15 @@ import '../styles/extended.css'
 const ListingExtended = (props) => {
   let { id } = useParams();
   const data = props.listings.filter(item => item.title === id)[0];
-  console.log(data);
   return(
     <div className="extended">
-      <img src={data.img_u} />
+      <img src={data.img_url} />    
+      <YMaps>
+        <Map defaultState={{ center: [55.75, 37.57], zoom: 9 }} />
+      </YMaps>
     </div>
   );
 }
-
-// export default ListingExtended;
 
 const mapStateToProps = (state) => {
   return {
