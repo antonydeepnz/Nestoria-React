@@ -11,7 +11,7 @@ import ListingExtended from './ListingExtended'
 
 export const Listing = (props) => {
   let { path, url } = useRouteMatch();
-  const pathTo = props.title.toLowerCase().replace(/[^a-zA-Z ]/g, "").replace(/[ ]/g,'-')//replace(/[^a-zA-ZА]/gi,'');
+  const pathTo = props.title.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, "").replace(/[ ]/g,'-');
 
   return (
     <>
@@ -20,8 +20,7 @@ export const Listing = (props) => {
         <h4>{props.title}</h4>
         <p>{`${props.price} ${props.price_type}`}</p>
         <Link className='listing-getmore-btn'
-              to={`${url}/${pathTo}`}
-                    >More Info</Link>
+              to={`${url}/${pathTo}`}>More Info</Link>
         <SaveToFavorites data={props.data} checked={props.checked}/>
       </div>
     </>

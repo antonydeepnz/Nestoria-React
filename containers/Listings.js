@@ -20,9 +20,9 @@ const Listings = (props) => {
     props.onGetListings(town);
   }
   return (
-    <>
-      <Search onSearch={handleSearch}/>  
+    <><Search onSearch={handleSearch}/> 
       <Switch>
+        
         <Route exact path={path}>
           <div className='list-of-listings'>
             {props.listingsState.loading? <Loader />:
