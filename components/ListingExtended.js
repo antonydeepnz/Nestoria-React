@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { YMaps, Map } from 'react-yandex-maps'
+import { YMaps, Map, Placemark } from 'react-yandex-maps'
 import {
   useParams,
 } from "react-router-dom";
@@ -14,7 +14,10 @@ const ListingExtended = (props) => {
     <div className="extended">
       <img src={data.img_url} />    
       <YMaps>
-        <Map defaultState={{ center: [55.75, 37.57], zoom: 9 }} />
+        <Map defaultState={{ center: [data.latitude, data.longitude], zoom: 18 }}>
+          <Placemark geometry={[data.latitude, data.longitude]}
+              properties={{iconCaption:data.title}}/>
+        </Map>
       </YMaps>
     </div>
   );
