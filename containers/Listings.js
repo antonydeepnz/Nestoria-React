@@ -8,6 +8,7 @@ import { Loader } from '../components/Loader'
 import { haveSaved } from '../src/helpFuncs'
 import { getListings } from '../store/actions/listingsActions'
 import ListingExtended from '../components/ListingExtended'
+import '../styles/map.css'
 
 const MyMap = (props) => {
   return (
@@ -23,20 +24,14 @@ const MyMap = (props) => {
   );
 }
 
-
-
 const Listings = (props) => {
 
   const handleSearch = (town) => {
    // this.props.onQuery(town);
     props.onGetListings(town);
   }
-  return (
-    <>
-      <Search onSearch={handleSearch}/> 
-      <div className='list-of-listings'>
-        {props.listings.loading? <Loader />:
-          props.listings.listings.map((item,index) => {
+
+  const elements = props.listings.listings.map((item,index) => {
             return <Listing key={index} 
                   imgSrc={item.img_url}
                   title={item.title}
@@ -44,8 +39,18 @@ const Listings = (props) => {
                   price_type={item.price_type}
                   data={item} 
                   checked={haveSaved(props.favorites,item)}/>
-        })}
-        <MyMap location={props.listings.location} data={props.listings.listings}/>
+        })
+
+  return (
+    <>
+      <Search onSearch={handleSearch}/> 
+      <div className='list-of-listings'>
+        {props.listings.loading? <Loader />:
+          <>
+            {elements} 
+            <MyMap className='map' location={props.listings.location} data={props.listings.listings}/>
+          </>
+        }
       </div>
     </>
   );
