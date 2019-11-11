@@ -36,7 +36,6 @@ const ListingExtended = (props) => {
           </ul>
         </div>  
       </div>
- 
       <MyMap latitude={data.latitude} longitude={data.longitude} title={data.title}/>
     </div>
   );

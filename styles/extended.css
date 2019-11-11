@@ -1,5 +1,6 @@
 .extended {
   display: flex;
+  margin: 10px;
 }
 
 .extended > img {

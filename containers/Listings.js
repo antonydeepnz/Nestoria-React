@@ -65,7 +65,7 @@ const Listings = (props) => {
     </>
   );
 }
-//            <MyMap className='map' location={props.listings.location} data={props.listings.listings}/>  
+//<MyMap className='map' location={props.listings.location} data={props.listings.listings}/>  
 const mapStateToProps = (state) => {
   return {
     listings: state.listings,
