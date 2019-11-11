@@ -19,7 +19,7 @@ export const Listing = (props) => {
         <img src={props.imgSrc}/>
         <h4>{props.title}</h4>
         <p>{`${props.price} ${props.price_type}`}</p>
-        <Link className='listing-getmore-btn' 
+        <Link className='listing-getmore-btn'
               to={`${url}/${pathTo}`}>More Info</Link>
         <SaveToFavorites data={props.data} checked={props.checked}/>
       </div>

@@ -21,15 +21,22 @@ const MyMap = (props) => {
 const ListingExtended = (props) => {
   let { id } = useParams();
   const data = props.listings.filter(item => item.title === id)[0];
-
+  const keywords = data.keywords.split(', ') 
   return(
     <div className="extended">
-      <img src={data.img_url} />    
-      <h4>{data.title}</h4>
-      <p>{`${data.price} ${data.price_type}`}</p>
-      <ul>
-        {data.keywords.map(item => {return <li>{item}</li>})}
-      </ul>
+      <img src={data.img_url} /> 
+      <div>
+        <div>
+          <h4>{data.title}</h4>
+          <p>{`${data.price} ${data.price_type}`}</p>
+        </div>
+        <div>
+          <ul>
+            {keywords.map(item => {return <li>{item}</li>})}
+          </ul>
+        </div>  
+      </div>
+ 
       <MyMap latitude={data.latitude} longitude={data.longitude} title={data.title}/>
     </div>
   );
