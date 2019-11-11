@@ -10,9 +10,9 @@ import '../styles/extended.css'
 const MyMap = (props) => {
   return (
     <YMaps>
-      <Map width='450px' height='450px' defaultState={{ center: [data.latitude, data.longitude], zoom: 18}} >
-        <Placemark geometry={[data.latitude, data.longitude]}
-            properties={{iconCaption:data.title}}/>
+      <Map width='450px' height='450px' defaultState={{ center: [props.latitude, props.longitude], zoom: 18}} >
+        <Placemark geometry={[props.latitude, props.longitude]}
+            properties={{iconCaption:props.title}}/>
       </Map>
     </YMaps>
   );
@@ -21,10 +21,16 @@ const MyMap = (props) => {
 const ListingExtended = (props) => {
   let { id } = useParams();
   const data = props.listings.filter(item => item.title === id)[0];
+
   return(
     <div className="extended">
       <img src={data.img_url} />    
-      
+      <h4>{data.title}</h4>
+      <p>{`${data.price} ${data.price_type}`}</p>
+      <ul>
+        {data.keywords.map(item => {return <li>{item}</li>})}
+      </ul>
+      <MyMap latitude={data.latitude} longitude={data.longitude} title={data.title}/>
     </div>
   );
 }

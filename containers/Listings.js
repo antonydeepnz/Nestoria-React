@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { YMaps, Map, Placemark } from 'react-yandex-maps'
 
@@ -26,7 +26,6 @@ const MyMap = (props) => {
 }
 
 const Listings = (props) => {
-
   const handleSearch = (town) => {
     props.onGetListings(town);
   }
@@ -35,6 +34,10 @@ const Listings = (props) => {
     const { town, page } = props.listings.query; 
     props.onGetMore(town, page+1);
     e.target.style.display = 'none';
+  }
+
+  const showGetMore = () => {
+    return props.listings.listings.length === 0? <></>: <GetMore func={handleGetMore}/>
   }
 
   const elements = 
@@ -56,13 +59,13 @@ const Listings = (props) => {
       <div className='list-of-listings'>
         {elements} 
         {props.listings.loading? <Loader />:
-          <><GetMore func={handleGetMore}/></>   
+          showGetMore()
         }
       </div>
     </>
   );
 }
-//            <MyMap className='map' location={props.listings.location} data={props.listings.listings}/>
+//            <MyMap className='map' location={props.listings.location} data={props.listings.listings}/>  
 const mapStateToProps = (state) => {
   return {
     listings: state.listings,
