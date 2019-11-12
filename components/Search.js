@@ -22,16 +22,9 @@ const mapStateToProps = (state) => {
     
   };
 };
-/*
-const mapDispatchtoProps = (dispatch) => {
-  return {
-    onGetListings: (town) => {dispatch(getListings(town))}
-  }
-}
-*/
+
 export default connect(
-  state => ({
-  }),
+  null,
   dispatch => ({
     onGetListings: (town) => {
       dispatch(getListings(town));

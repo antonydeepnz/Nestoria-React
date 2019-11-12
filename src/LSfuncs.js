@@ -1,12 +1,11 @@
 export const loadState = (key) => {
   try {
     const serializedState = localStorage.getItem('nestoria');
-    if (serializedState === null) {
-      return undefined;
+    if (serializedState) {
+      return {...JSON.parse(serializedState)}[key] 
     }
-    return {...JSON.parse(serializedState)}[key];
   } catch (err) {
-    return undefined;
+    return;
   }
 }; 
 

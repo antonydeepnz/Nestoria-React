@@ -26,13 +26,6 @@ export default class ScrollEvents extends Component {
   }
   scrollPos = (document.body.getBoundingClientRect()).top;  
   }
-
-  render(){
-    return(
-      <>
-      </>
-    );
-  }
 }
 
 

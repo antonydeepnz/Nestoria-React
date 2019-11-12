@@ -33,11 +33,10 @@ const Listings = (props) => {
   const handleGetMore = (e) => {
     const { town, page } = props.listings.query; 
     props.onGetMore(town, page+1);
-    e.target.style.display = 'none';
   }
 
   const showGetMore = () => {
-    return props.listings.listings.length === 0? <></>: <GetMore func={handleGetMore}/>
+    return !props.listings.listings.length? null: <GetMore func={handleGetMore}/>
   }
 
   const elements = 
