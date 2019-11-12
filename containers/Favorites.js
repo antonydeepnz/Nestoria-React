@@ -7,7 +7,7 @@ import { haveSaved } from '../src/helpFuncs'
 const Favorites = (props) => {
   return (
     <>
-      {props.favorites.map((item,index) => {
+      {props.favorites.filter(item => {return ite}).map((item,index) => {
         return <Listing key={index} 
               imgSrc={item.img_url}
               title={item.title}

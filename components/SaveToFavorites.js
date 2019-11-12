@@ -6,14 +6,15 @@ import { saveToFavorite, deleteFromFavorite } from '../store/actions/favoritesAc
 
 const SaveToFavorites = (props) => {
   const [checked, setChecked] = useState(props.checked);
-  const handleChange = (data,event) => {
-    !checked? props.onSave(data): props.onDelete(data,event);
+   
+  const handleChange = (data) => {
+    !checked? props.onSave(data): props.onDelete(data);
     setChecked(!checked);
   }
   return(
     <div className="listing-tofavorite">
       <input className="tofavorite-checkbox" type="checkbox" checked={checked}/>
-      <label className="tofavorite-label" onClick={(event) => {handleChange(props.data,event)}}></label>
+      <label className="tofavorite-label" onClick={() => {handleChange(props.data)}}></label>
     </div>
   );
 }
@@ -29,9 +30,9 @@ const mapDispatchToProps = (dispatch) => {
     onSave: (data) => {
       dispatch(saveToFavorite(data))
     },
-    onDelete: (data,event) => {
+    onDelete: (data) => {
       dispatch(deleteFromFavorite(data));
-      event.target.parentNode.style.display = 'none';
+      //event.target.parentNode.style.display = 'none';
     }
   }
 }
