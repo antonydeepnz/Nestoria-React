@@ -1,0 +1,36 @@
+.listing-tofavorite {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
+}
+
+.tofavorite-checkbox {
+    display: none;
+}
+
+.tofavorite-label {
+    font-size: 28px;
+}
+
+.tofavorite-label:before {
+    content: '\2606';
+}
+
+.tofavorite-label:after {
+    content: '\2605';
+    display: none;
+}
+
+.tofavorite-label:hover {
+    content: '\2605';
+    color: red;
+}
+
+.tofavorite-checkbox:checked + .tofavorite-label:after {
+	display: block;
+}
+
+.tofavorite-checkbox:checked + .tofavorite-label:before {
+	display: none;
+}

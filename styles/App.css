@@ -1,0 +1,16 @@
+.app {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+
+  padding: 5px;
+  background-color: rgba(179, 187, 187, 0.356);
+}
+
+.list-of-listings {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+  align-items: stretch;
+  justify-content: center;
+}

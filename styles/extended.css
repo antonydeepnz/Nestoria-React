@@ -1,0 +1,9 @@
+.extended {
+  display: flex;
+  margin: 10px;
+}
+
+.extended > img {
+  height: 300px;
+  width: 400px;
+}
